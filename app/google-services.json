@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "172067654381",
+    "project_id": "masbaquiz",
+    "storage_bucket": "masbaquiz.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:172067654381:android:3d9876ac380c3500c91ae4",
+        "android_client_info": {
+          "package_name": "com.example.masbaquiz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "172067654381-inj8h7jg06ia05tucsrb9fetlljm9qvr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.masbaquiz",
+            "certificate_hash": "eedbfd40a477e086383a81f96b9cdf82ef4f0a3a"
+          }
+        },
+        {
+          "client_id": "172067654381-ogc9ikqic3hmfffunijfnfdjfmh810cl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDF881ZDgmgIk-KQ_sumdcVWJBULaI5WHE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "172067654381-ogc9ikqic3hmfffunijfnfdjfmh810cl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
