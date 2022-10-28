@@ -1,5 +1,6 @@
 package com.example.masbaquiz;
 
+import androidx.annotation.DrawableRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
@@ -17,6 +18,7 @@ import java.util.List;
 public class Result extends AppCompatActivity {
     private List<QuestionsList> questionsLists = new ArrayList<>();
     TextView congrats, congratsTV;
+    ImageView award;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +33,7 @@ public class Result extends AppCompatActivity {
         final AppCompatButton endQuizBtn = findViewById(R.id.endQuizBtn);
         congrats = findViewById(R.id.congrats);
         congratsTV = findViewById(R.id.congratsTV);
+        award = findViewById(R.id.award);
 
         questionsLists = (List<QuestionsList>) getIntent().getSerializableExtra("questions");
         totalScoreTV.setText("/"+questionsLists.size()*5);
@@ -38,8 +41,9 @@ public class Result extends AppCompatActivity {
         correctTV.setText(getCorrectAnswers()+"");
         incorrectTV.setText(String.valueOf(questionsLists.size() - getCorrectAnswers()));
         if (getCorrectAnswers()<3){
-            congrats.setText("OPPS !!");
-            congratsTV.setText("You have failed to get pass mark. You can RETAKE");
+            award.setImageResource(R.drawable.opps);
+            congrats.setText("");
+            congratsTV.setText("You have failed to get the pass mark. You can RETAKE");
         }
 
         reTakeBtn.setOnClickListener(new View.OnClickListener() {

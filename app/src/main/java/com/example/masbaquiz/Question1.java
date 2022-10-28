@@ -10,6 +10,7 @@ import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,6 +40,7 @@ public class Question1 extends AppCompatActivity {
     private CountDownTimer countDownTimer;
     private int currentQuestionPosition = 0;
     private int selectedOption = 0;
+    ProgressBar progressBar;
 
 
     @Override
@@ -47,6 +49,7 @@ public class Question1 extends AppCompatActivity {
         setContentView(R.layout.activity_question1);
         getSupportActionBar().hide();
 
+        progressBar = findViewById(R.id.progressBar);
         quizTimer = findViewById(R.id.quiz_timer);
         option1layout = findViewById(R.id.option1layout);
         option2layout = findViewById(R.id.option2layout);
@@ -72,6 +75,9 @@ public class Question1 extends AppCompatActivity {
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (progressBar != null){
+                    progressBar.setVisibility(View.GONE);
+                }
                 final int getQuizTime = snapshot.child("time").getValue(Integer.class);
                 for (DataSnapshot questions: snapshot.child("questions").getChildren()){
                     String getQuestion = questions.child("question").getValue(String.class);
@@ -92,7 +98,7 @@ public class Question1 extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(Question1.this,"Failed",Toast.LENGTH_SHORT).show();
+                Toast.makeText(Question1.this,"Failed to retrive data from firebase",Toast.LENGTH_SHORT).show();
 
             }
         });
